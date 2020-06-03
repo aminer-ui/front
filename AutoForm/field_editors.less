@@ -1,0 +1,132 @@
+.editor {
+  display: flex;
+  margin-bottom: 0px;
+  input {
+    display: inline-block;
+    width: 100%;
+    padding: 2px 6px;
+    height: 28px;
+    font-size: 14px;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    &:focus {
+      border-color: #40a9ff;
+      outline: 0;
+      -webkit-box-shadow: 0 0 0 2px rgba(24,144,255,0.2);
+      box-shadow: 0 0 0 2px rgba(24,144,255,0.2);
+    }
+    &:hover {
+      border-color: #40a9ff;
+    }
+  }
+
+  &.price {
+    input {
+      color: red;
+    }
+  }
+  :global {
+    .ant-select-selection--single {
+      height: 28px;
+    }
+    .ant-select-selection__rendered {
+      line-height: 28px;
+    }
+
+    .normalEditor { width: 75%;line-height: 28px; }
+
+    .errorEditor { margin-bottom: 16px  }
+
+    .fullEditor { width: 100%; }
+
+    .errorMsg {
+      color: #ff4d4f;
+      font-size: 12px;
+      line-height: 1;
+      height: 16px;
+      padding: 2px 0px;
+    }
+
+    .errorTip { border: dotted 2px red }
+
+    .label {
+      width: 18%;
+      margin-right: 6px;
+      text-align: right;
+      display: flex;
+      .labelWord {
+        width: 100% - 4px;
+        word-break: break-word;
+        margin-right: 1px;
+      }
+      .labelColon {
+        &::after {
+          content: ' : ';
+          position: relative;
+          top: -0.5px;
+        }
+      }
+    }
+
+    .required::before {
+      display: inline-block;
+      margin-right: 4px;
+      color: #f5222d;
+      font-size: 14px;
+      font-family: SimSun, sans-serif;
+      line-height: 1;
+      content: '*';
+    }
+
+    .textarea {
+      border: 1px solid #d9d9d9;
+      border-radius: 2px;
+      padding: 2px 6px;
+      margin-bottom: 2px;
+      min-height: 48px;
+      &:focus {
+        border-color: #40a9ff;
+        outline: 0;
+        box-shadow: 0 0 0 2px rgba(24,144,255,0.2);
+      }
+      &:hover {
+        border-color: #40a9ff;
+      }
+    }
+    
+    .hideFlow {
+      overflow: hidden;
+    }
+
+    .itemLabel {
+      overflow: hidden;
+      white-space: nowrap;
+      text-align: right;
+      vertical-align: middle;
+      margin-right: 8px;
+      line-height: 38px;
+      input[type=text], input[type=number] {
+        max-width: 100%;
+      }
+    }
+
+    .singleLabel {
+      text-align: right;
+      margin-right: 8px;
+    }
+
+    // -----------------------------------------------------------
+
+  }
+
+  &.price {
+    border: solid 1px red;
+  }
+
+}
+
+.vertical {
+  flex-direction: column;
+}
