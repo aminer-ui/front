@@ -1,6 +1,6 @@
 import React, { } from 'react';
 import { useTable, useSortBy, useFilters } from 'react-table';
-import { classnames } from 'utils';
+import classnames from 'classnames';
 import styles from './basic-react-table.less';
 
 const BasicTable = ({ columns, data, className, rowKey }) => {

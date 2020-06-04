@@ -1,7 +1,7 @@
 import React, { useMemo, useCallback, Fragment, useEffect, useState, forwardRef, useImperativeHandle, useRef } from 'react';
 import { Formik, Form } from 'formik';
 import moment from 'moment';
-import { classnames } from 'utils';
+import classnames from 'classnames';
 import { Button } from 'antd';
 import { createValidateFun, FormItem } from './index';
 import styles from './AutoForm.less';
@@ -65,7 +65,8 @@ const FormInner = forwardRef((payload, ref) => {
   const content = InfiniteConfig(config);
 
   return (
-    <Form className={classnames(styles.autoForm, styles[`form-${layout}`])}>
+    // <Form className={classnames(styles.autoForm, styles[`form-${layout}`])}>
+    <Form className={styles.autoForm}>
       <ul className='formInner'>{content}</ul>
       {onSubmit && (
         <div className='btnwrap'>

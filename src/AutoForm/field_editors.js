@@ -2,7 +2,7 @@
 import React, { useMemo, useCallback } from 'react';
 import { Form, Input, Select, Radio, Switch, Checkbox, Tooltip, Cascader } from 'antd';
 import { Formik, Field, withFormik, useField } from 'formik';
-import { classnames } from 'utils';
+import classnames from 'classnames';
 import styles from './field_editors.less';
 
 const emptyFun = () => { };
