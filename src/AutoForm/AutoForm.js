@@ -10,7 +10,7 @@ import styles from './AutoForm.less';
 // 1. layout 表单布局 'horizontal'|'vertical'|'inline'
 //
 const FormInner = forwardRef((payload, ref) => {
-  const { layout = 'horizontal', config, data, onSubmit, footerConfig = {}, formikprops, editorStyle } = payload;
+  const { layout = 'horizontal', config, data, onSubmit, footerConfig = {}, formikprops, editorStyle, okText } = payload;
   const { values, errors, setValues, resetForm, setFieldValue, setMyTouched } = formikprops;
   const { align: submitAlign = (config.every(n => !n.label) ? 'left' : ''), showReset = false } = footerConfig;
 
@@ -65,16 +65,15 @@ const FormInner = forwardRef((payload, ref) => {
   const content = InfiniteConfig(config);
 
   return (
-    // <Form className={classnames(styles.autoForm, styles[`form-${layout}`])}>
-    <Form className={styles.autoForm}>
-      <ul className='formInner'>{content}</ul>
+    <Form className={classnames(styles.autoForm, styles[`form-${layout}`])}>
+      <ul className={classnames('formInner', `formInner${layout}`)}>{content}</ul>
       {onSubmit && (
-        <div className='btnwrap'>
+        <div className={classnames('btnwrap')}>
           <Button
             htmlType="submit" type="primary"
             className={classnames('subBtn', `${submitAlign}SubBtn`
             )}>
-            submit
+            {okText || 'submit'}
           </Button>
           {showReset && (
             <Button htmlType="reset">
