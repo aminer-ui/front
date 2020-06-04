@@ -6,7 +6,7 @@ import { AutoForm } from './AutoForm';
 
 ReactDOM.render(
     <AutoForm
-        layout='inline'
+        // layout='inline'
         data={{ name: "text", email: "", id: '' }}
         config={
             [
