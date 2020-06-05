@@ -16,11 +16,13 @@
         },
     ]
 
-    <AutoForm
-        data={{ name: "text", email: "" }}
-        config={formConfig}
-        onSubmit={onSubmit}
-    />
+    return (
+        <AutoForm
+            data={{ name: "text", email: "" }}
+            config={formConfig}
+            onSubmit={onSubmit}
+        />
+    )
 
     Please contact me for more questions, email: aminerfront@gmail.com
 
