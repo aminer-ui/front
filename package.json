@@ -1,6 +1,6 @@
 {
   "name": "aminer-ui",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "form table",
   "main": "dist/main.js",
   "files": [
@@ -14,9 +14,11 @@
   "license": "ISC",
   "private": false,
   "keywords": [
-    "aminer front",
+    "aminer-ui",
     "form",
-    "table"
+    "table",
+    "react",
+    "react-hooks"
   ],
   "dependencies": {
     "antd": "^3.26.2",
