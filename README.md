@@ -24,6 +24,9 @@
         />
     )
 
+    see more, https://github.com/aminer-ui/front
+    [首页-简书](http://www.jianshu.com)
+
     Please contact me for more questions, email: aminerfront@gmail.com
 
 
