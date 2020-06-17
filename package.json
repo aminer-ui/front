@@ -1,6 +1,6 @@
 {
   "name": "aminer-ui",
-  "version": "2.0.5",
+  "version": "2.0.7",
   "description": "form table",
   "main": "dist/main.js",
   "files": [
@@ -13,6 +13,10 @@
   "author": "",
   "license": "ISC",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aminer-ui/front"
+  },
   "keywords": [
     "aminer-ui",
     "form",
