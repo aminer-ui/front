@@ -10,7 +10,7 @@ import styles from './AutoForm.less';
 // 1. layout 表单布局 'horizontal'|'vertical'|'inline'
 //
 const FormInner = forwardRef((payload, ref) => {
-  const { layout = 'horizontal', config, data, onSubmit, footerConfig = {}, formikprops, editorStyle, okText } = payload;
+  const { layout = 'horizontal', config, data, onSubmit, footerConfig = {}, formikprops, editorStyle, okText, loading } = payload;
   const { values, errors, setValues, resetForm, setFieldValue, setMyTouched } = formikprops;
   const { align: submitAlign = (config.every(n => !n.label) ? 'left' : ''), showReset = false } = footerConfig;
 
@@ -18,6 +18,7 @@ const FormInner = forwardRef((payload, ref) => {
     reset: () => resetForm(),
     setValues: (v) => setValues(v),
     setFieldValue: (n, v) => setFieldValue(n, v),
+    getFieldValues: () => values,
   }))
 
   useEffect(() => {
@@ -70,6 +71,7 @@ const FormInner = forwardRef((payload, ref) => {
       {onSubmit && (
         <div className={classnames('btnwrap')}>
           <Button
+            loading={!!loading}
             htmlType="submit" type="primary"
             className={classnames('subBtn', `${submitAlign}SubBtn`
             )}>
@@ -100,6 +102,7 @@ const AutoForm = forwardRef((props, ref) => {
     reset: () => innerRef.current.reset(),
     setValues: (v) => innerRef.current.setValues(v),
     setFieldValue: (n, v) => innerRef.current.setFieldValue(n, v),
+    getFieldValues: (n, v) => innerRef.current.getFieldValues(),
   }));
 
   const params = useMemo(() => ({
