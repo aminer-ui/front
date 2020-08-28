@@ -34,14 +34,14 @@ const FormInner = forwardRef((payload, ref) => {
 
     // special
     const callback = {};
-    if (params.type === 'date') {
-      const formatValue = values[params.name] ? moment(values[params.name]) : null;
-      callback.defaultValue = formatValue;
-      callback.value = formatValue;
-      callback.onChange = (v) => {
-        setFieldValue(params.name, v ? moment(v) : null)
-        setMyTouched(params.name, true)
-      }
+    if (params.type === 'defined') {
+      // const formatValue = values[params.name] ? moment(values[params.name]) : null;
+      // callback.defaultValue = formatValue;
+      // callback.value = formatValue;
+      // callback.onChange = (v) => {
+      //   setFieldValue(params.name, v);
+      //   setMyTouched(params.name, true)
+      // }
     }
 
     // nested
@@ -72,6 +72,7 @@ const FormInner = forwardRef((payload, ref) => {
         <div className={classnames('btnwrap')}>
           <Button
             loading={!!loading}
+            disabled={!!loading}
             htmlType="submit" type="primary"
             className={classnames('subBtn', `${submitAlign}SubBtn`
             )}>

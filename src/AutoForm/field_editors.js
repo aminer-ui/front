@@ -35,8 +35,9 @@ const FormItemWrap = props => {
     children, name, label, required, editorStyle,
     className, labelStyle, layout, form: { errors, myTouched, touched },
   } = props;
-  
+
   const hasError = errors[name] && (myTouched[name] || touched[name]);
+
   return (
     <li className={classnames(styles.editor, styles[layout], className)}>
       {label && (
@@ -47,7 +48,7 @@ const FormItemWrap = props => {
       )}
       <span className={classnames(
         editorStyle,
-        { 'errorEditor': !hasError },
+        { 'errorEditor': !hasError && !editorStyle },
         label ? 'normalEditor' : 'fullEditor',
       )}>
         {children}
@@ -78,6 +79,7 @@ const Fieldset = (params) => {
           <FormItemWrap form={form} {...rest}
             children={
               <input
+                className={styles.input}
                 {...field}
                 autoComplete="off"
                 placeholder={placeholder}
@@ -182,12 +184,7 @@ const CheckBoxEditor = (params) => {
   )
 };
 
-// const DateEditor = (params) => {
-//   const { children, ...rest } = params;
-//   return <FormItemWrap {...rest}>{children}</FormItemWrap>
-// }
-
-const DateEditor = (params) => {
+const DefinedEditor = (params) => {
   const { children, ...rest } = params;
   return (
     <Field name={rest.name}>
@@ -349,7 +346,7 @@ export default {
   SwitchEditor,
   TextareaEditor,
   CheckBoxEditor,
-  DateEditor,
+  DefinedEditor,
   CascaderEditor,
 };
 

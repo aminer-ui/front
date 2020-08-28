@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { DatePicker } from 'antd';
 
-
-import { AutoForm } from './AutoForm';
+import { AutoForm, FormItem } from './AutoForm';
 
 ReactDOM.render(
     <AutoForm
         // layout='inline'
-        data={{ name: "text", email: "", id: '' }}
+        data={{ name: "text", email: "", id: '', data: '' }}
         config={
             [
                 {
@@ -27,7 +27,7 @@ ReactDOM.render(
                     label: '测试',
                     type: 'text',
                     placeholder: 'id'
-                }
+                },
             ]
         }
         onSubmit={() => { console.log('---') }}

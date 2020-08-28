@@ -129,12 +129,12 @@ const typesRegExp = {
 
 const createValidateFun = (config) => (values) => {
   const errors = {};
-  config && config.map(({ name, rules }) => {
+  config && config.map(({ name, label, rules }) => {
     if (rules && rules.length) {
-      rules.map(({ validate, required, type }) => {
-        
-        if (required && (!values[name] || values[name] && values[name].length === 0)) {
-          errors[name] = 'Required';
+      rules.map(({ validate, required, type, msg }) => {
+
+        if (required === true && (!values[name] || values[name] && values[name].length === 0)) {
+          errors[name] = msg || `请输入${label}`;
           return;
         }
 
@@ -145,7 +145,7 @@ const createValidateFun = (config) => (values) => {
 
         if (Object.keys(typesRegExp).includes(type)) {
           if (!typesRegExp[type].test(values[name])) {
-            errors[name] = `Invalid ${type}`;
+            errors[name] = `不合法的 ${type}`;
             return;
           }
         }
